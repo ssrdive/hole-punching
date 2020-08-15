@@ -14,6 +14,9 @@ public class NATDetectionServer {
 
         System.out.println("Endpoint for first connection: " + IPAddress1 + ":" + port1);
 
+        serverSocket1.send(new DatagramPacket("Hello".getBytes(),
+            "Hello".getBytes().length, IPAddress1, port1));
+
         serverSocket1.close();
 
         serverSocket1 = new DatagramSocket(6061);
@@ -27,6 +30,9 @@ public class NATDetectionServer {
         int port2 = receivePacket2.getPort();
 
         System.out.println("Endpoint for second connection: " + IPAddress2 + ":" + port2);
+
+        serverSocket1.send(new DatagramPacket("Hello".getBytes(),
+            "Hello".getBytes().length, IPAddress2, port2));
 
         serverSocket1.close();
     }

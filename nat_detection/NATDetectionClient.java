@@ -10,13 +10,17 @@ public class NATDetectionClient {
             sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
         clientSocket.send(sendPacket);
 
+        DatagramPacket receivePacket = new DatagramPacket(new byte[1024], 1024);
+        clientSocket.receive(receivePacket);
+
         int localPort = clientSocket.getLocalPort();
-        clientSocket.close();
-        clientSocket = new DatagramSocket(localPort);
 
         sendPacket = new DatagramPacket(sendData,
             sendData.length, InetAddress.getByName("178.128.214.46"), 6061);
         clientSocket.send(sendPacket);
+
+        receivePacket = new DatagramPacket(new byte[1024], 1024);
+        clientSocket.receive(receivePacket);
 
         clientSocket.close();
     }
