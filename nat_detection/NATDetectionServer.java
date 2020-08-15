@@ -1,7 +1,7 @@
 import java.net.*;
 
 public class NATDetectionServer {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         DatagramSocket serverSocket1 = new DatagramSocket(6060);
 
         System.out.println("Waiting for first connection "

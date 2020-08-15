@@ -1,7 +1,7 @@
 import java.net.*;
 
 public class NATDetectionClient {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         DatagramSocket clientSocket = new DatagramSocket();
 
         byte[] sendData = "Hello".getBytes();
