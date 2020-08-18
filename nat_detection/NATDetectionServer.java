@@ -69,5 +69,22 @@ public class NATDetectionServer {
             "Hello".getBytes().length, IPAddress4, port4));
 
         serverSocket1.close();
+
+        serverSocket1 = new DatagramSocket(6064);
+
+        System.out.println("Waiting for fifth connection "
+            + serverSocket1.getLocalPort());
+        DatagramPacket receivePacket5 = new DatagramPacket(new byte[1024], 1024);
+        serverSocket1.receive(receivePacket5);
+
+        InetAddress IPAddress5 = receivePacket5.getAddress();
+        int port5 = receivePacket5.getPort();
+
+        System.out.println("Endpoint of fifth connection: " + IPAddress5 + ":" + port5);
+
+        serverSocket1.send(new DatagramPacket("Hello".getBytes(),
+            "Hello".getBytes().length, IPAddress5, port5));
+
+        serverSocket1.close();
     }
 }
