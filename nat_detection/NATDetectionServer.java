@@ -12,7 +12,7 @@ public class NATDetectionServer {
         InetAddress IPAddress1 = receivePacket.getAddress();
         int port1 = receivePacket.getPort();
 
-        System.out.println("Endpoint for first connection: " + IPAddress1 + ":" + port1);
+        System.out.println("Endpoint of first connection: " + IPAddress1 + ":" + port1);
 
         serverSocket1.send(new DatagramPacket("Hello".getBytes(),
             "Hello".getBytes().length, IPAddress1, port1));
@@ -21,7 +21,7 @@ public class NATDetectionServer {
 
         serverSocket1 = new DatagramSocket(6061);
 
-        System.out.println("Waiting for first connection "
+        System.out.println("Waiting for second connection "
             + serverSocket1.getLocalPort());
         DatagramPacket receivePacket2 = new DatagramPacket(new byte[1024], 1024);
         serverSocket1.receive(receivePacket2);
@@ -29,10 +29,27 @@ public class NATDetectionServer {
         InetAddress IPAddress2 = receivePacket2.getAddress();
         int port2 = receivePacket2.getPort();
 
-        System.out.println("Endpoint for second connection: " + IPAddress2 + ":" + port2);
+        System.out.println("Endpoint of second connection: " + IPAddress2 + ":" + port2);
 
         serverSocket1.send(new DatagramPacket("Hello".getBytes(),
             "Hello".getBytes().length, IPAddress2, port2));
+
+        serverSocket1.close();
+
+        serverSocket1 = new DatagramSocket(6061);
+
+        System.out.println("Waiting for third connection "
+            + serverSocket1.getLocalPort());
+        DatagramPacket receivePacket3 = new DatagramPacket(new byte[1024], 1024);
+        serverSocket1.receive(receivePacket3);
+
+        InetAddress IPAddress3 = receivePacket3.getAddress();
+        int port3 = receivePacket3.getPort();
+
+        System.out.println("Endpoint of second connection: " + IPAddress3 + ":" + port3);
+
+        serverSocket1.send(new DatagramPacket("Hello".getBytes(),
+            "Hello".getBytes().length, IPAddress3, port3));
 
         serverSocket1.close();
     }
