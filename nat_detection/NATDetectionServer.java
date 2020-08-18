@@ -58,7 +58,7 @@ public class NATDetectionServer {
         System.out.println("Waiting for fourth connection "
             + serverSocket1.getLocalPort());
         DatagramPacket receivePacket4 = new DatagramPacket(new byte[1024], 1024);
-        serverSocket1.receive(receivePacket3);
+        serverSocket1.receive(receivePacket4);
 
         InetAddress IPAddress4 = receivePacket4.getAddress();
         int port4 = receivePacket4.getPort();
