@@ -25,7 +25,7 @@ public class NATDetectionClient {
         clientSocket.close();
 
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6061);
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6062);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);

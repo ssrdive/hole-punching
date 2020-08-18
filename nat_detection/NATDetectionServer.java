@@ -36,7 +36,7 @@ public class NATDetectionServer {
 
         serverSocket1.close();
 
-        serverSocket1 = new DatagramSocket(6061);
+        serverSocket1 = new DatagramSocket(6062);
 
         System.out.println("Waiting for third connection "
             + serverSocket1.getLocalPort());
