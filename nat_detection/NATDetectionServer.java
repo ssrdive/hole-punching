@@ -46,10 +46,27 @@ public class NATDetectionServer {
         InetAddress IPAddress3 = receivePacket3.getAddress();
         int port3 = receivePacket3.getPort();
 
-        System.out.println("Endpoint of second connection: " + IPAddress3 + ":" + port3);
+        System.out.println("Endpoint of third connection: " + IPAddress3 + ":" + port3);
 
         serverSocket1.send(new DatagramPacket("Hello".getBytes(),
             "Hello".getBytes().length, IPAddress3, port3));
+
+        serverSocket1.close();
+
+        serverSocket1 = new DatagramSocket(6063);
+
+        System.out.println("Waiting for fourth connection "
+            + serverSocket1.getLocalPort());
+        DatagramPacket receivePacket4 = new DatagramPacket(new byte[1024], 1024);
+        serverSocket1.receive(receivePacket3);
+
+        InetAddress IPAddress4 = receivePacket4.getAddress();
+        int port4 = receivePacket4.getPort();
+
+        System.out.println("Endpoint of fourth connection: " + IPAddress4 + ":" + port4);
+
+        serverSocket1.send(new DatagramPacket("Hello".getBytes(),
+            "Hello".getBytes().length, IPAddress4, port4));
 
         serverSocket1.close();
     }
