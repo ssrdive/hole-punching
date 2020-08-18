@@ -50,5 +50,14 @@ public class NATDetectionClient {
         receivePacket = new DatagramPacket(new byte[1024], 1024);
         clientSocket.receive(receivePacket);
         clientSocket.close();
+
+        clientSocket = new DatagramSocket(localPort);
+        sendPacket = new DatagramPacket(sendData,
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6065);
+        clientSocket.send(sendPacket);
+
+        receivePacket = new DatagramPacket(new byte[1024], 1024);
+        clientSocket.receive(receivePacket);
+        clientSocket.close();
     }
 }
