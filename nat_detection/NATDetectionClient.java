@@ -17,7 +17,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6061);
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -26,7 +26,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6062);
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -35,7 +35,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6063);
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -44,7 +44,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6064);
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -53,7 +53,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6065);
+            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
