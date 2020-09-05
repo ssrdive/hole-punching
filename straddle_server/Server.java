@@ -41,8 +41,12 @@ class PeerHandler extends Thread {
     @Override
     public void run() {
         while(true) {
-            String received = dis.readUTF();
-            System.out.println(received);
+            try {
+                String received = dis.readUTF();
+                System.out.println(received);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
