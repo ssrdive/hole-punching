@@ -50,7 +50,7 @@ class PeerHandler extends Thread {
 
                 String received = dis.readUTF();
 
-                System.out.print(formattedDate + " " + s.getRemoteSocketAddress().toString());
+                System.out.print(formattedDate + " " + s.getRemoteSocketAddress());
                 System.out.println(received);
             } catch (IOException e) {
                 e.printStackTrace();
