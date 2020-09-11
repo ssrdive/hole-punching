@@ -42,7 +42,13 @@ class PeerHandler extends Thread {
     public void run() {
         while(true) {
             try {
+                LocalDateTime myDateObj = LocalDateTime.now();  
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+                String formattedDate = myDateObj.format(myFormatObj); 
+
                 String received = dis.readUTF();
+
+                System.out.print(formattedDate + " ");
                 System.out.println(received);
             } catch (IOException e) {
                 e.printStackTrace();
