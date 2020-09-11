@@ -50,7 +50,8 @@ class PeerHandler extends Thread {
 
                 String received = dis.readUTF();
 
-                System.out.print(formattedDate + " " + s.getInetAddress().getHostName() + " ");
+                System.out.print(formattedDate + " " + s.getInetAddress().getHostName()
+                + ":" + s.getPort() + " ");
                 System.out.println(received);
             } catch (IOException e) {
                 e.printStackTrace();
