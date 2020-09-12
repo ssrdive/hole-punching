@@ -131,13 +131,12 @@ class PingPeerHandler extends Thread {
     @Override
     public void run() {
         DataStore dataStore = new DataStore();
-
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDate = myDateObj.format(myFormatObj);
-
         while(true) {
             try {
+                LocalDateTime myDateObj = LocalDateTime.now();
+                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String formattedDate = myDateObj.format(myFormatObj);
+                
                 String received = dis.readUTF();
                 String receivedArr[] = received.split("~");
 
