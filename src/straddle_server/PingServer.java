@@ -178,7 +178,12 @@ class PingPeerHandler extends Thread {
                 System.out.println(received);
                 System.out.println(dataStore.pingDetails);
             } catch (IOException e) {
-                e.printStackTrace();
+                try {
+                    s.close();
+                    System.out.println("[PingPeerHandler] Closing: " + s);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     }
