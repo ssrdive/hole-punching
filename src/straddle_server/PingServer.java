@@ -5,12 +5,22 @@ import java.net.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-class PingServer {
-    public static void main(String[] args) throws IOException {
-        ServerSocket ss = new ServerSocket(5056);
-        while (true) {
-            Socket s = null;
-            try {
+class Server {
+    public static void main(String[] args) {
+        PingServer pingServer = new PingServer();
+        pingServer.start();
+
+        CommServer commServer = new CommServer();
+        commServer.start();
+    }
+}
+
+class PingServer extends Thread {
+    public void run() {
+        try {
+            ServerSocket ss = new ServerSocket(5056);
+            while (true) {
+                Socket s = null;
                 s = ss.accept();
 
                 System.out.println("[PingServer] Peer connected: " + s);
@@ -21,20 +31,20 @@ class PingServer {
                 System.out.println("[PingServer] Assigning new thread to peer...");
                 Thread t = new PingPeerHandler(s, dis, dos);
                 t.start();
-            } catch (Exception e) {
-                s.close();
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
 
-class CommServer {
-    public static void main(String[] args) throws IOException {
-        ServerSocket ss = new ServerSocket(5058);
-        while (true) {
-            Socket s = null;
-            try {
+class CommServer extends Thread {
+    public void run() {
+        try {
+            ServerSocket ss = new ServerSocket(5058);
+            while (true) {
+                Socket s = null;
+
                 s = ss.accept();
 
                 System.out.println("[CommServer] Peer connected: " + s);
@@ -45,10 +55,10 @@ class CommServer {
                 System.out.println("[CommServer] Assigning new thread to peer...");
                 Thread t = new CommPeerHandler(s, dis, dos);
                 t.start();
-            } catch (Exception e) {
-                s.close();
-                e.printStackTrace();
+
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
@@ -66,10 +76,21 @@ class PingValue {
         this.privateIP = privateIP;
     }
 
-    public String getTimeStamp() { return this.timeStamp; }
-    public String getPublicIP() { return this.publicIP; }
-    public int getPublicPort() { return this.publicPort; }
-    public String getPrivateIP() { return this.privateIP; }
+    public String getTimeStamp() {
+        return this.timeStamp;
+    }
+
+    public String getPublicIP() {
+        return this.publicIP;
+    }
+
+    public int getPublicPort() {
+        return this.publicPort;
+    }
+
+    public String getPrivateIP() {
+        return this.privateIP;
+    }
 
     @Override
     public String toString() {
@@ -86,6 +107,7 @@ class CommPeerHandler extends Thread {
     final Socket s;
     final DataInputStream dis;
     final DataOutputStream dos;
+
     public CommPeerHandler(Socket s, DataInputStream dis, DataOutputStream dos) {
         this.s = s;
         this.dis = dis;
@@ -95,7 +117,7 @@ class CommPeerHandler extends Thread {
     @Override
     public void run() {
         DataStore dataStore = new DataStore();
-        while(true) {
+        while (true) {
             try {
                 String received = dis.readUTF();
                 String receivedArr[] = received.split("~");
@@ -111,7 +133,7 @@ class CommPeerHandler extends Thread {
                         dos.writeUTF(sendPacket);
                         break;
                 }
-            } catch(IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -122,6 +144,7 @@ class PingPeerHandler extends Thread {
     final Socket s;
     final DataInputStream dis;
     final DataOutputStream dos;
+
     public PingPeerHandler(Socket s, DataInputStream dis, DataOutputStream dos) {
         this.s = s;
         this.dis = dis;
@@ -131,12 +154,12 @@ class PingPeerHandler extends Thread {
     @Override
     public void run() {
         DataStore dataStore = new DataStore();
-        while(true) {
+        while (true) {
             try {
                 LocalDateTime myDateObj = LocalDateTime.now();
                 DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 String formattedDate = myDateObj.format(myFormatObj);
-                
+
                 String received = dis.readUTF();
                 String receivedArr[] = received.split("~");
 
