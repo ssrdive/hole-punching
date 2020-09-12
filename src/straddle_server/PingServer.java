@@ -134,7 +134,14 @@ class CommPeerHandler extends Thread {
                         break;
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                try {
+                    s.close();
+                    System.out.println("[CommPeerHandler] Closing: " + s);
+                    break;
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                    break;
+                }
             }
         }
     }
@@ -181,8 +188,10 @@ class PingPeerHandler extends Thread {
                 try {
                     s.close();
                     System.out.println("[PingPeerHandler] Closing: " + s);
+                    break;
                 } catch (Exception e1) {
                     e1.printStackTrace();
+                    break;
                 }
             }
         }
