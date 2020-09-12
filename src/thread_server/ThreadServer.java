@@ -3,7 +3,7 @@ import java.text.*;
 import java.util.*;
 import java.net.*;
 
-public class Server {
+public class ThreadServer {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(5056);
 

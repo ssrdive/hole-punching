@@ -3,9 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/nat_detection" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tcp_hole_punching" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/udp_hole_punching" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/nat_detection" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/tcp_hole_punching" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/udp_hole_punching" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

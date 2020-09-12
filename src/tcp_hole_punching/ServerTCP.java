@@ -1,6 +1,6 @@
 import java.net.*;
 
-public class Server {
+public class ServerTCP {
     public static void main(String[] args) throws Exception {
         ServerSocket server = new ServerSocket(5050);
 
