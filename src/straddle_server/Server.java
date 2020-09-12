@@ -89,6 +89,7 @@ class PeerHandler extends Thread {
                 System.out.print(formattedDate + " " + s.getInetAddress().getHostName()
                 + ":" + s.getPort() + " ");
                 System.out.println(received);
+                System.out.println(dataStore.pingDetails);
             } catch (IOException e) {
                 e.printStackTrace();
             }
