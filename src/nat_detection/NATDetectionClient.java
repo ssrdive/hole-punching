@@ -1,13 +1,14 @@
 import java.net.*;
 
 public class NATDetectionClient {
+    final static String IP = "206.189.39.61";
     public static void main(String[] args) throws Exception {
         DatagramSocket clientSocket = new DatagramSocket();
 
         byte[] sendData = "Hello".getBytes();
 
         DatagramPacket sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
+            sendData.length, InetAddress.getByName(IP), 6060);
         clientSocket.send(sendPacket);
 
         DatagramPacket receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -17,7 +18,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
+            sendData.length, InetAddress.getByName(IP), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -26,7 +27,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
+            sendData.length, InetAddress.getByName(IP), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -35,7 +36,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
+            sendData.length, InetAddress.getByName(IP), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -44,7 +45,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
+            sendData.length, InetAddress.getByName(IP), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -53,7 +54,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 6060);
+            sendData.length, InetAddress.getByName(IP), 6060);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
