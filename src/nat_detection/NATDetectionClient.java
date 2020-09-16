@@ -18,7 +18,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName(IP), 6060);
+            sendData.length, InetAddress.getByName(IP), 6061);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -27,7 +27,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName(IP), 6060);
+            sendData.length, InetAddress.getByName(IP), 6062);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -36,7 +36,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName(IP), 6060);
+            sendData.length, InetAddress.getByName(IP), 6063);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -45,7 +45,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName(IP), 6060);
+            sendData.length, InetAddress.getByName(IP), 6064);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
@@ -54,7 +54,7 @@ public class NATDetectionClient {
 
         clientSocket = new DatagramSocket(localPort);
         sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName(IP), 6060);
+            sendData.length, InetAddress.getByName(IP), 6065);
         clientSocket.send(sendPacket);
 
         receivePacket = new DatagramPacket(new byte[1024], 1024);
