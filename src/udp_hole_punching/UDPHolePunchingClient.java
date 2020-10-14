@@ -12,7 +12,7 @@ public class UDPHolePunchingClient {
     // send Data to ServerTCP with fix IP (X.X.X.X)
     // Client1 uses port 7070, Client2 uses port 7071
     DatagramPacket sendPacket = new DatagramPacket(sendData,
-            sendData.length, InetAddress.getByName("178.128.214.46"), 7071);
+            sendData.length, InetAddress.getByName("206.189.39.61"), 7071);
     clientSocket.send(sendPacket);
 
     // receive Data ==> Format:"<IP of other Client>-<Port of other Client>"
